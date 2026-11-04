@@ -1,0 +1,87 @@
+/* =============================================
+   ADMIN PAGE (family only, not linked from site)
+   ============================================= */
+.page-hero--slim { padding: 48px 0 40px; }
+.page-hero--slim h1 { margin-bottom: 0; }
+
+.admin-section { background: var(--cream); padding: 48px 0 88px; }
+.admin-section .container { max-width: 860px; }
+
+.admin-loading { text-align: center; color: var(--text-mid); }
+
+.admin-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  margin-bottom: 28px;
+}
+.admin-card h2 { font-size: 1.5rem; font-style: italic; margin-bottom: 8px; }
+.admin-signin, #admin-newpass { max-width: 440px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
+.admin-signin[hidden], #admin-newpass[hidden], [hidden] { display: none !important; }
+
+.admin-card .form-group { display: flex; flex-direction: column; gap: 6px; }
+.admin-card label {
+  font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--text-mid);
+}
+.admin-card input {
+  font-family: var(--font-body); font-size: 1rem; color: var(--text-dark);
+  background: var(--cream); border: 1.5px solid var(--border);
+  border-radius: var(--radius); padding: 12px 16px; width: 100%;
+}
+.admin-card input:focus { outline: none; border-color: var(--forest); box-shadow: 0 0 0 3px rgba(28,61,40,0.1); }
+
+.admin-link-btn {
+  background: none; border: 0; padding: 0; cursor: pointer; align-self: center;
+  font-family: var(--font-body); font-size: 0.88rem; color: var(--text-mid);
+  text-decoration: underline; text-underline-offset: 3px;
+}
+
+.admin-msg { margin: 0; padding: 12px 16px; border-radius: var(--radius); font-size: 0.9rem; }
+.admin-msg--error   { background: #fdf0f0; border: 1px solid #f5c6c6; color: #a03030; }
+.admin-msg--success { background: #edf7ed; border: 1px solid #b2d9b2; color: #245c24; }
+.admin-msg--info    { background: var(--sage-pale); color: var(--text-dark); }
+
+.admin-topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 12px; margin-bottom: 24px;
+}
+.admin-topbar p { margin: 0; color: var(--text-mid); }
+.admin-topbar-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+.admin-count { font-family: var(--font-body); font-style: normal; font-size: 1rem; color: var(--amber); }
+.admin-hint { font-size: 0.88rem; color: var(--text-mid); margin-bottom: 20px; }
+.admin-dim { color: var(--text-mid); font-size: 0.88rem; }
+
+.admin-list { display: flex; flex-direction: column; gap: 14px; }
+.admin-review {
+  border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 18px 20px; background: var(--cream);
+}
+.admin-review-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 12px; margin-bottom: 8px; }
+.admin-stars { color: var(--amber-warm); letter-spacing: 2px; }
+.admin-date { margin-left: auto; }
+.admin-review-text { margin: 0 0 14px; color: var(--text-dark); white-space: pre-line; }
+.admin-review-actions { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+
+.admin-danger {
+  background: none; border: 0; cursor: pointer; padding: 6px 4px;
+  font-family: var(--font-body); font-size: 0.85rem; color: #a03030;
+  text-decoration: underline; text-underline-offset: 3px;
+}
+
+[data-theme="dark"] .admin-danger { color: #ff9b9b; }
+
+@media (max-width: 600px) {
+  .admin-card { padding: 22px 18px; }
+  .admin-date { margin-left: 0; }
+}
+
+.btn-sm { font-size: 0.8rem; padding: 8px 18px; }
+.btn-full { width: 100%; text-align: center; justify-content: center; }
+.admin-old { margin-left: 8px; background: #FDECEA; color: #8B1A10; border-radius: 100px; padding: 2px 8px; font-size: 0.75rem; }
+.admin-review-actions a { color: var(--forest); }
+.admin-stars { position: relative; display: inline-block; line-height: 1; letter-spacing: 2px; white-space: nowrap; }
+.admin-stars .stars-bg { color: var(--border); }
+.admin-stars .stars-fg { position: absolute; left: 0; top: 0; overflow: hidden; color: var(--amber-warm); }

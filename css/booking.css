@@ -1,0 +1,668 @@
+/* =============================================
+   BOOKING PAGE — Countryside Editorial
+   ============================================= */
+
+.booking-intro {
+  background: var(--cream);
+  padding-top: 56px;
+  padding-bottom: 56px;
+}
+
+.session-length-banner {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  background: var(--forest);
+  border-radius: var(--radius-lg);
+  padding: 32px 40px;
+  color: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+
+.session-length-banner::after {
+  content: '';
+  position: absolute;
+  right: -30px; top: -30px;
+  width: 160px; height: 160px;
+  border-radius: 50%;
+  background: rgba(184,115,51,0.12);
+}
+
+.slb-icon {
+  font-size: 2.8rem;
+  flex-shrink: 0;
+  filter: drop-shadow(0 2px 8px rgba(184,115,51,0.3));
+}
+
+.session-length-banner h2 {
+  color: var(--cream);
+  font-style: italic;
+  margin-bottom: 6px;
+}
+
+.session-length-banner p {
+  color: rgba(245,233,216,0.72);
+  margin: 0;
+  font-weight: 300;
+}
+
+/* ── Pricing ─────────────────────────────────── */
+.pricing-section { background: var(--cream); }
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 36px 0 24px;
+}
+
+.pricing-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  box-shadow: var(--shadow);
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.pricing-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+.pricing-card--extended {
+  border-color: var(--amber);
+  box-shadow: 0 4px 24px rgba(184,115,51,0.14);
+}
+
+.pricing-header {
+  background: var(--parchment);
+  padding: 32px 32px 24px;
+}
+
+.pricing-card--extended .pricing-header {
+  background: var(--forest);
+}
+
+.pricing-card--extended .pricing-header h3,
+.pricing-card--extended .pricing-header .pricing-dogs {
+  color: var(--cream);
+}
+
+[data-theme="dark"] .pricing-card--extended .pricing-header .pricing-dogs {
+  color: var(--text-dark);
+}
+
+.pricing-badge {
+  display: inline-block;
+  background: var(--amber);
+  color: var(--cream);
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 14px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+
+.pricing-header h3 {
+  margin-bottom: 4px;
+  font-size: 1.5rem;
+}
+
+.pricing-dogs {
+  font-size: 0.88rem;
+  color: var(--text-light);
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+
+.pricing-body {
+  padding: 28px 32px;
+  flex: 1;
+}
+
+.pricing-price {
+  font-family: var(--font-heading);
+  font-size: 2.4rem;
+  color: var(--forest);
+  font-weight: 600;
+  margin-bottom: 14px;
+  line-height: 1;
+}
+
+.pricing-body p { font-size: 0.92rem; margin-bottom: 0; }
+.pricing-body p.pricing-price { font-size: 2.4rem; margin-bottom: 14px; }
+.pricing-body .icon-list { margin-top: 14px; }
+
+.pricing-footer {
+  padding: 0 32px 32px;
+}
+
+.pricing-note {
+  font-size: 0.88rem;
+  color: var(--text-light);
+  background: var(--parchment);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  font-weight: 300;
+}
+
+/* ── Parking ─────────────────────────────────── */
+.parking-section { background: var(--parchment); }
+
+.parking-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 28px;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+}
+
+.parking-card h2 {
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.parking-icon { font-size: 2.8rem; flex-shrink: 0; margin-top: 4px; }
+
+/* ── Session times ───────────────────────────── */
+.session-times-section { background: var(--cream); }
+
+.session-times-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 36px;
+}
+
+.session-time-card {
+  text-align: center;
+  background: var(--parchment);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 40px 32px;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.session-time-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.st-icon { font-size: 2.6rem; margin-bottom: 16px; display: block; }
+
+.session-time-card h3 {
+  font-style: italic;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.st-time {
+  display: inline-block;
+  background: var(--forest);
+  color: var(--cream);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  padding: 5px 16px;
+  margin: 10px 0 16px;
+}
+
+/* ── Booking widget ──────────────────────────── */
+.booking-widget-section {
+  background: var(--amber-pale);
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.booking-widget-section h2 {
+  font-style: italic;
+}
+
+.widget-placeholder {
+  background: var(--cream);
+  border: 2px dashed var(--border);
+  border-radius: var(--radius-lg);
+  padding: 64px 40px;
+  margin-top: 36px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.widget-placeholder p {
+  color: var(--text-light);
+  margin-bottom: 8px;
+  font-weight: 300;
+}
+
+/* ── Acuity booking embed ────────────────────── */
+.booking-embed {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  margin: 36px auto 0;
+  max-width: 900px;
+  overflow: hidden;
+  box-shadow: 0 8px 28px rgba(44, 31, 14, 0.08);
+}
+
+.booking-embed iframe {
+  display: block;
+  width: 100%;
+  min-height: 800px;
+  border: 0;
+}
+
+.booking-embed-loading {
+  padding: 64px 24px;
+  color: var(--text-light);
+  font-weight: 300;
+}
+
+.booking-noscript {
+  margin-top: 24px;
+  color: var(--text-mid);
+}
+
+/* Acuity's page is always light, so keep a light frame around it in dark mode */
+[data-theme="dark"] .booking-embed {
+  background: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+@media (max-width: 600px) {
+  .booking-embed {
+    margin-top: 24px;
+    border-radius: var(--radius-md, 12px);
+  }
+  .booking-embed iframe { min-height: 900px; }
+}
+
+/* ── Block booking banner ────────────────────── */
+.block-booking-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  background: var(--forest);
+  border-radius: var(--radius-lg);
+  padding: 28px 32px;
+  margin-top: 20px;
+  color: var(--cream);
+}
+
+.bbb-icon { font-size: 2rem; flex-shrink: 0; margin-top: 2px; }
+
+.block-booking-banner h3 {
+  color: var(--cream);
+  font-style: italic;
+  margin-bottom: 6px;
+}
+
+.block-booking-banner p {
+  color: rgba(245,233,216,0.75);
+  margin: 0;
+  font-weight: 300;
+}
+
+.block-booking-banner a { color: var(--amber-warm); text-decoration: underline; }
+.block-booking-banner + .pricing-note { margin-top: 16px; }
+
+/* ── Gift vouchers ───────────────────────────── */
+.gift-section {
+  background: var(--amber-pale);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.gift-inner {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  max-width: 720px;
+}
+
+.gift-icon { font-size: 4rem; flex-shrink: 0; }
+
+.gift-text .section-label { color: var(--amber); }
+.gift-text .section-label::before { background: var(--amber); }
+.gift-text h2 { font-style: italic; }
+.gift-text a { color: var(--forest); text-decoration: underline; }
+
+/* ── What to bring ───────────────────────────── */
+.bring-section { background: var(--cream); }
+
+.bring-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 36px;
+}
+
+.bring-card {
+  background: var(--parchment);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px 22px;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.bring-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+.bring-icon { font-size: 2rem; margin-bottom: 12px; display: block; }
+.bring-card h3 { font-size: 1.05rem; margin-bottom: 8px; }
+.bring-card p  { font-size: 0.88rem; margin: 0; }
+
+/* ── Requirements ────────────────────────────── */
+.requirements-section { background: var(--parchment); }
+
+.requirements-inner {
+  max-width: 720px;
+  background: var(--cream);
+}
+
+.requirements-inner h3 {
+  font-style: italic;
+  margin-bottom: 18px;
+  color: var(--forest);
+}
+
+/* ── Horses note ─────────────────────────────── */
+.horses-note {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.horses-note-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 400;
+  color: var(--text-mid);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--border);
+  transition: color 0.2s;
+}
+
+.horses-note-btn:hover { color: var(--forest); }
+
+.horses-note-btn svg { flex-shrink: 0; color: var(--text-light); }
+
+/* ── Horses section ──────────────────────────── */
+.horses-section { background: var(--parchment); }
+
+.horses-card {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px 32px;
+  max-width: 720px;
+}
+
+.horses-card-icon { font-size: 2.4rem; flex-shrink: 0; }
+
+.horses-card-body h3 {
+  font-style: italic;
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+  color: var(--forest);
+}
+
+.horses-card-body p {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--text-mid);
+  margin-bottom: 14px;
+}
+
+.btn-sm {
+  font-size: 0.8rem;
+  padding: 8px 18px;
+}
+
+/* ── Horses modal ────────────────────────────── */
+.hm-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.hm-overlay.is-open { display: flex; }
+
+.hm-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(26,18,10,0.8);
+  backdrop-filter: blur(4px);
+  cursor: pointer;
+}
+
+.hm-box {
+  position: relative;
+  z-index: 1;
+  background: var(--cream);
+  border-radius: 16px;
+  max-width: 580px;
+  width: 100%;
+  max-height: 86vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.45);
+  overflow: hidden;
+  animation: hmIn .25s cubic-bezier(.22,1,.36,1);
+}
+
+@keyframes hmIn {
+  from { opacity: 0; transform: translateY(18px) scale(.97); }
+  to   { opacity: 1; transform: none; }
+}
+
+.hm-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 28px 18px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.hm-title {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: 1.4rem;
+  color: var(--forest);
+  margin: 0;
+}
+
+.hm-x {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--text-light);
+  line-height: 1;
+  padding: 0 6px;
+  border-radius: 6px;
+  transition: color .15s, background .15s;
+}
+
+.hm-x:hover { color: var(--forest); background: var(--sage-pale); }
+
+.hm-body {
+  padding: 22px 28px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.hm-body p {
+  font-size: .92rem;
+  font-weight: 300;
+  color: var(--text-mid);
+  line-height: 1.75;
+  margin-bottom: 12px;
+}
+
+.hm-body a { color: var(--forest); text-decoration: underline; }
+
+.hm-foot {
+  padding: 14px 28px 20px;
+  border-top: 1px solid var(--border);
+  flex-shrink: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hm-close-btn {
+  background: var(--forest);
+  color: var(--cream);
+  border: none;
+  padding: 10px 26px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: .85rem;
+  font-weight: 600;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  transition: background .2s;
+}
+
+.hm-close-btn:hover { background: var(--amber); }
+
+@media (max-width: 480px) {
+  .hm-overlay { align-items: flex-end; padding: 0; }
+  .hm-box { border-radius: 16px 16px 0 0; max-height: 90vh; }
+}
+
+/* ── Responsive ──────────────────────────────── */
+@media (max-width: 900px) {
+  .bring-grid { grid-template-columns: repeat(2, 1fr); }
+  .gift-inner { flex-direction: column; gap: 20px; }
+}
+
+@media (max-width: 640px) {
+  .pricing-grid         { grid-template-columns: 1fr; }
+  .session-times-grid   { grid-template-columns: 1fr; }
+  .session-length-banner { flex-direction: column; text-align: center; }
+  .session-time-card    { padding: 28px 20px; }
+  .slb-icon             { font-size: 2rem; }
+  .parking-card         { flex-direction: column; }
+  .block-booking-banner { flex-direction: column; }
+  .bring-grid           { grid-template-columns: 1fr; }
+  .pricing-header,
+  .pricing-body,
+  .pricing-footer       { padding-left: 24px; padding-right: 24px; }
+}
+
+.booking-terms-note { margin: 12px auto 0; max-width: 640px; font-size: 0.9rem; color: var(--text-mid); }
+.booking-terms-note a { color: var(--forest); text-decoration: underline; }
+
+
+/* ── Booking page layout v2: pick a session right above the calendar ── */
+.booking-widget-section { text-align: center; }
+.booking-lead { max-width: 620px; margin: 8px auto 0; color: var(--text-mid); }
+
+.session-picker {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  max-width: 720px;
+  margin: 28px auto 0;
+}
+.session-option {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas: "name price" "dogs price" "cta cta";
+  align-items: center;
+  gap: 2px 16px;
+  text-align: left;
+  background: var(--white);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 18px 22px;
+  cursor: pointer;
+  font-family: var(--font-body);
+  color: var(--text-dark);
+  transition: border-color .2s, box-shadow .2s, transform .2s;
+}
+.session-option:hover { border-color: var(--forest); transform: translateY(-2px); box-shadow: var(--shadow); }
+.session-option:focus-visible { outline: 3px solid var(--forest); outline-offset: 3px; }
+.session-option.is-selected { border-color: var(--forest); box-shadow: 0 0 0 3px rgba(28,61,40,0.12); }
+.so-name  { grid-area: name; font-family: var(--font-heading); font-style: italic; font-size: 1.35rem; color: var(--forest); line-height: 1.2; }
+.so-dogs  { grid-area: dogs; font-size: 0.95rem; color: var(--text-mid); }
+.so-price { grid-area: price; font-family: var(--font-heading); font-size: 2.3rem; font-weight: 600; color: var(--forest); line-height: 1; }
+.so-cta   { grid-area: cta; margin-top: 12px; font-size: 0.78rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--amber); }
+.session-option.is-selected .so-cta { color: var(--forest); }
+.session-option.is-selected .so-cta::before { content: '✓ '; }
+
+.booking-extras { max-width: 640px; margin: 18px auto 0; font-size: 0.92rem; color: var(--text-mid); }
+.booking-extras a { color: var(--forest); text-decoration: underline; }
+
+.booking-widget-section .opening-note { margin-top: 20px; }
+.booking-terms-note { margin-top: 16px; }
+
+/* Block bookings + gifts */
+.extras-section { background: var(--amber-pale); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.extras-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 28px; }
+.extras-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; }
+.extras-icon { font-size: 2rem; margin-bottom: 10px; }
+.extras-card h3 { font-style: italic; margin-bottom: 8px; }
+.extras-card p { margin: 0; }
+.extras-how { margin: 18px 0 0; color: var(--text-mid); }
+.extras-how a:not(.btn) { color: var(--forest); text-decoration: underline; }
+
+/* "Before you visit" heading strip */
+.before-visit-heading { background: var(--parchment); padding: 72px 0 0; }
+.before-visit-heading + section { padding-top: 32px; }
+.before-visit-heading h2 { font-style: italic; margin: 0; }
+
+@media (max-width: 640px) {
+  .session-picker, .extras-grid { grid-template-columns: 1fr; }
+  .before-visit-heading { padding-top: 52px; }
+}
+
+[data-contrast="on"] .session-option { border-color: #555; }
+[data-contrast="on"] .session-option.is-selected { border-color: var(--forest); }
+
+/* Session cards are now links straight to Acuity (no embedded calendar) */
+a.session-option { text-decoration: none; color: var(--text-dark); }
+a.session-option:hover .so-cta { color: var(--forest); text-decoration: underline; text-underline-offset: 3px; }
+.so-cta { font-size: 0.85rem; }
+.booking-howto { max-width: 600px; margin: 18px auto 0; font-size: 0.88rem; color: var(--text-mid); }
+.extras-how .btn { margin-top: 4px; }
+
+/* Book-now section at the bottom (replaces the embedded calendar) */
+.book-cta-btns { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-top: 26px; }
+.book-cta-more { margin: 16px 0 0; }
+.book-cta-more a { color: var(--forest); text-decoration: underline; text-underline-offset: 3px; }

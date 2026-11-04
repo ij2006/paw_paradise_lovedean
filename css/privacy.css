@@ -1,0 +1,105 @@
+/* =============================================
+   PRIVACY POLICY PAGE
+   ============================================= */
+
+.privacy-section { background: var(--cream); }
+
+.privacy-content {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.privacy-updated {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  font-style: italic;
+  margin-bottom: 48px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.privacy-block {
+  margin-bottom: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid var(--border);
+}
+
+.privacy-block:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.privacy-block h2 {
+  font-size: 1.4rem;
+  font-style: italic;
+  margin-bottom: 16px;
+  color: var(--forest);
+}
+
+.privacy-block p { font-weight: 300; line-height: 1.8; }
+
+.privacy-block ul {
+  margin: 12px 0 16px;
+  padding-left: 0;
+  list-style: none;
+}
+
+.privacy-block ul li {
+  padding: 8px 0 8px 24px;
+  position: relative;
+  border-bottom: 1px solid var(--border);
+  font-weight: 300;
+  color: var(--text-mid);
+  line-height: 1.7;
+}
+
+.privacy-block ul li:last-child { border-bottom: none; }
+
+.privacy-block ul li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: var(--amber);
+}
+
+.privacy-contact-list li { font-size: 0.95rem; }
+
+/* ── Table ───────────────────────────────────── */
+.privacy-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 0.92rem;
+}
+
+.privacy-table th {
+  background: var(--forest);
+  color: var(--cream);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 12px 18px;
+  text-align: left;
+}
+
+.privacy-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-mid);
+  font-weight: 300;
+  line-height: 1.6;
+  background: var(--white);
+}
+
+.privacy-table tr:last-child td { border-bottom: none; }
+.privacy-table tr:nth-child(even) td { background: var(--parchment); }
+
+/* ── Responsive ──────────────────────────────── */
+@media (max-width: 600px) {
+  .privacy-table { font-size: 0.85rem; }
+  .privacy-table th,
+  .privacy-table td { padding: 10px 14px; }
+}

@@ -1,0 +1,127 @@
+/* =============================================
+   INFORMATION & FAQS — Countryside Editorial
+   ============================================= */
+
+.faq-section { background: var(--cream); }
+
+.faq-list {
+  max-width: 760px;
+  margin: 0 auto 64px;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--border);
+}
+
+.faq-item:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 24px 0;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  transition: color 0.15s;
+}
+
+.faq-question:hover { color: var(--forest); }
+
+.faq-question[aria-expanded="true"] {
+  color: var(--forest);
+  font-style: italic;
+}
+
+.faq-icon {
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--amber);
+  flex-shrink: 0;
+  transition: transform 0.3s cubic-bezier(0.22,1,0.36,1);
+  line-height: 1;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+
+.faq-question[aria-expanded="true"] .faq-icon {
+  transform: rotate(45deg);
+  background: var(--amber-pale);
+  border-color: var(--amber);
+}
+
+.faq-answer {
+  display: none;
+  padding: 4px 0 28px;
+}
+
+.faq-answer.open { display: block; }
+
+.faq-answer p {
+  color: var(--text-mid);
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+.faq-answer .icon-list { margin-top: 12px; }
+
+/* ── CTA at bottom ───────────────────────────── */
+.faq-cta {
+  text-align: center;
+  padding: 56px 32px;
+  background: var(--forest);
+  border-radius: var(--radius-lg);
+  max-width: 480px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.faq-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 80% at 50% 0%, rgba(184,115,51,0.1), transparent 70%);
+}
+
+.faq-cta p {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: 1.3rem;
+  color: var(--cream);
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.faq-cta .btn {
+  position: relative;
+  z-index: 1;
+}
+
+/* FAQ section headings (Nov 2026) */
+.faq-group-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3vw, 1.9rem);
+  font-style: italic;
+  color: var(--forest);
+  margin: 56px 0 12px;
+}
+.faq-group-title:first-child { margin-top: 0; }
+.faq-group .faq-item:first-child { border-top: 1px solid var(--border); }
+[data-theme="dark"] .faq-group-title { color: var(--text-dark); }

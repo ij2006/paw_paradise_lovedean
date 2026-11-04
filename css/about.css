@@ -1,0 +1,215 @@
+/* =============================================
+   PAW PARADISE — Meet the Team
+   ============================================= */
+
+/* ── Family story ────────────────────────────── */
+.family-story-section {
+  padding-bottom: 0;
+}
+
+.family-story-inner {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.family-story-photo {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: var(--radius-lg);
+  display: block;
+}
+
+.family-story-text h2 {
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.family-story-placeholder {
+  color: var(--text-light);
+  font-style: italic;
+  border-left: 2px dashed var(--border);
+  padding-left: 16px;
+  margin-bottom: 12px;
+}
+
+/* ── Section spacing ─────────────────────────── */
+.team-section {
+  padding-top: 72px;
+  padding-bottom: 0;
+}
+
+.dogs-section {
+  padding-top: 56px;
+}
+
+/* ── Section header ──────────────────────────── */
+.team-section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 0;
+}
+
+.team-section-header h2 {
+  font-style: italic;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  margin: 0;
+}
+
+.team-count {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-light);
+}
+
+/* ── List ────────────────────────────────────── */
+.team-list {
+  margin-top: 40px;
+  border-top: 1px solid var(--border);
+}
+
+/* ── Row ─────────────────────────────────────── */
+.team-card {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 56px;
+  padding: 56px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: center;
+  transition: background 0.25s;
+}
+
+.team-card:hover {
+  background: linear-gradient(90deg, var(--amber-pale), transparent 55%);
+  margin: 0 -32px;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+/* ── Photo ───────────────────────────────────── */
+.team-photo {
+  width: 220px;
+  height: 280px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: var(--radius-lg);
+  display: block;
+  transition: box-shadow 0.3s;
+}
+
+.team-card:hover .team-photo {
+  box-shadow: var(--shadow-lg);
+}
+
+/* ── Text ────────────────────────────────────── */
+.team-card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.team-name {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: clamp(2.4rem, 4vw, 3.6rem);
+  font-weight: 600;
+  color: var(--forest);
+  line-height: 1;
+  margin: 0 0 10px;
+  letter-spacing: -0.01em;
+}
+
+.team-role {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 20px;
+}
+
+.team-role::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 1.5px;
+  background: var(--amber);
+  flex-shrink: 0;
+}
+
+.team-bio {
+  font-size: 1rem;
+  color: var(--text-mid);
+  font-weight: 300;
+  line-height: 1.8;
+  margin: 0;
+  max-width: 500px;
+}
+
+.team-bio--placeholder {
+  color: var(--text-light);
+  font-style: italic;
+}
+
+/* ── Dark mode ───────────────────────────────── */
+[data-theme="dark"] .team-list,
+[data-theme="dark"] .team-card  { border-color: var(--border); }
+[data-theme="dark"] .team-card:hover {
+  background: linear-gradient(90deg, rgba(201,133,58,0.07), transparent 55%);
+}
+[data-theme="dark"] .team-name  { color: var(--text-dark); }
+
+/* ── Responsive ──────────────────────────────── */
+@media (max-width: 860px) {
+  .family-story-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 780px) {
+  .team-card {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 40px 0;
+  }
+
+  .team-card:hover {
+    margin: 0 -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .team-photo {
+    width: 100%;
+    height: 260px;
+    object-position: center 20%;
+  }
+}
+
+/* ── Two photos per person: solo + with a dog (Nov 2026) ── */
+.team-photos { display: flex; gap: 14px; }
+.team-photos--two .team-photo { width: 190px; height: 250px; }
+.team-photos--two .team-photo:nth-child(2) { margin-top: 28px; }
+@media (min-width: 781px) {
+  .team-card { grid-template-columns: auto 1fr; }
+}
+@media (max-width: 780px) {
+  .team-photos--two { width: 100%; }
+  .team-photos--two .team-photo { width: calc(50% - 7px); height: auto; aspect-ratio: 3 / 4; }
+  .team-photos--two .team-photo:nth-child(2) { margin-top: 0; }
+}
+
+.family-story-text p { margin-bottom: 14px; }
+
+.team-bio + .team-bio { margin-top: 12px; }

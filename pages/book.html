@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Opening booking – Paw Paradise Lovedean</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32.png" />
+  <style>
+    body { margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center;
+           background: #1C3D28; color: #F7F2E9; font-family: 'Jost', system-ui, sans-serif; text-align: center; padding: 24px; }
+    a { color: #F7F2E9; font-weight: 600; }
+    p { font-size: 1.05rem; line-height: 1.6; }
+  </style>
+  <script>
+    // Hand-off page between our site and Acuity.
+    // First visit: go to Acuity. If the visitor presses Back from Acuity,
+    // they land here again, so we send them on to our booking page instead.
+    (function () {
+      var BASE = 'https://app.acuityscheduling.com/schedule.php?owner=40722415';
+      var DEST = {
+        standard: BASE + '&appointmentType=99841024',
+        large:    BASE + '&appointmentType=99841025',
+        all:      BASE
+      };
+      var key  = (new URLSearchParams(location.search).get('session') || 'all');
+      var url  = DEST[key] || DEST.all;
+      var flag = 'pp-book-handoff-' + key;
+
+      function goHome() { location.replace('booking.html'); }
+
+      function run(isReturn) {
+        var visited = false;
+        try { visited = sessionStorage.getItem(flag) === '1'; } catch (e) {}
+        if (isReturn || visited) {
+          try { sessionStorage.removeItem(flag); } catch (e) {}
+          goHome();
+          return;
+        }
+        try { sessionStorage.setItem(flag, '1'); } catch (e) {}
+        // Wait until this page has fully loaded so it stays in the tab's history,
+        // otherwise browsers treat the jump as a replacement and Back skips it.
+        var go = function () { setTimeout(function () { location.href = url; }, 400); };
+        if (document.readyState === 'complete') go(); else window.addEventListener('load', go);
+      }
+
+      // Back/forward cache: page restored without reloading
+      window.addEventListener('pageshow', function (e) { if (e.persisted) run(true); });
+      run(false);
+      window.__ppBookUrl = url;
+    })();
+  </script>
+</head>
+<body>
+  <main>
+    <p>Opening our booking page&hellip;</p>
+    <p><a id="go" href="https://app.acuityscheduling.com/schedule.php?owner=40722415">Continue to booking</a> &nbsp;·&nbsp; <a href="booking.html">Back to Paw Paradise</a></p>
+  </main>
+  <script>if (window.__ppBookUrl) document.getElementById('go').href = window.__ppBookUrl;</script>
+</body>
+</html>
