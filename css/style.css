@@ -556,8 +556,6 @@ section { padding: var(--section-gap) 0; }
 .btn-facebook:hover  { background: #1464d0; transform: translateY(-1px); text-decoration: none; }
 .btn-tiktok    { background: #0d0d0d; color: #fff; }
 .btn-tiktok:hover    { background: #333; transform: translateY(-1px); text-decoration: none; }
-.btn-linkedin  { background: #0A66C2; color: #fff; }
-.btn-linkedin:hover  { background: #08529c; transform: translateY(-1px); text-decoration: none; }
 
 /* ── Theme toggle ────────────────────────────── */
 .theme-toggle {
