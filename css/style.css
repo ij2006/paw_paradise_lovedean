@@ -247,8 +247,16 @@
 /* ── Accessibility modes ─────────────────────── */
 /* Text size scales the root, so every rem-based size on the site follows (not just body text) */
 html[data-fontsize="sm"] { font-size: 88.235%; --fs-scale: 0.88235; }   /* body text 15px */
-html[data-fontsize="lg"] { font-size: 114.706%; --fs-scale: 1.14706; }  /* body text 19.5px */
+html[data-fontsize="lg"] { font-size: 130%; --fs-scale: 1.3; }  /* body text about 22px */
 
+/* Dyslexia-friendly: one clear font everywhere, including headings, buttons and menus */
+html[data-dyslexia="on"] {
+  --font-heading: 'Atkinson Hyperlegible', Arial, sans-serif;
+  --font-body:    'Atkinson Hyperlegible', Arial, sans-serif;
+}
+[data-dyslexia="on"] body *:not(svg):not(svg *) { font-family: 'Atkinson Hyperlegible', Arial, sans-serif !important; }
+[data-dyslexia="on"] h1, [data-dyslexia="on"] h2, [data-dyslexia="on"] h3,
+[data-dyslexia="on"] h4, [data-dyslexia="on"] .team-name { font-style: normal !important; }
 [data-dyslexia="on"] body,
 [data-dyslexia="on"] p,
 [data-dyslexia="on"] li,
