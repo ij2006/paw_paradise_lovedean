@@ -1,4 +1,4 @@
-// Gallery lightbox — images and videos
+// Gallery lightbox - images and videos
 (function () {
   let items = [];
   function collect() {

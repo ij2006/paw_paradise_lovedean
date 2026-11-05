@@ -1,4 +1,4 @@
-// Blog page — load posts and handle admin write/delete
+// Blog page - load posts and handle admin write/delete
 
 (function () {
   // Shared connection from auth.js (so the admin sign-in is recognised here)
@@ -38,7 +38,7 @@
     listEl.innerHTML = '<div class="blog-loading">Loading posts&hellip;</div>';
 
     if (!sb) {
-      listEl.innerHTML = '<div class="blog-empty"><p>Unable to load posts — please refresh the page.</p></div>';
+      listEl.innerHTML = '<div class="blog-empty"><p>Unable to load posts. Please refresh the page.</p></div>';
       return;
     }
 
@@ -48,7 +48,7 @@
       .order('created_at', { ascending: false });
 
     if (res.error || !res.data || res.data.length === 0) {
-      listEl.innerHTML = '<div class="blog-empty"><p>No posts yet — check back soon.</p></div>';
+      listEl.innerHTML = '<div class="blog-empty"><p>No posts yet. Check back soon.</p></div>';
       return;
     }
 
@@ -115,7 +115,7 @@
 
     if (!title.trim()) { setWriteMsg('Please add a title.', 'error'); return; }
     if (!body.trim())  { setWriteMsg('Please write something in the post body.', 'error'); return; }
-    if (!sb) { setWriteMsg('Connection error — please refresh.', 'error'); return; }
+    if (!sb) { setWriteMsg('Connection error. Please refresh.', 'error'); return; }
 
     var btn = document.getElementById('btn-publish');
     btn.disabled = true; btn.textContent = 'Publishing…';
@@ -159,7 +159,7 @@
       if (card) card.remove();
       var list = document.getElementById('posts-list');
       if (list && !list.querySelector('.blog-post-card')) {
-        list.innerHTML = '<div class="blog-empty"><p>No posts yet — check back soon.</p></div>';
+        list.innerHTML = '<div class="blog-empty"><p>No posts yet. Check back soon.</p></div>';
       }
     }
   };

@@ -1,5 +1,5 @@
 /* =============================================
-   PAW PARADISE LOVEDEAN — Base Stylesheet
+   PAW PARADISE LOVEDEAN - Base Stylesheet
    Aesthetic: Countryside Editorial
    ============================================= */
 
@@ -49,28 +49,28 @@
 
 /* ── Dark mode tokens ────────────────────────── */
 [data-theme="dark"] {
-  --forest:      #EDE5D4;   /* cream — headings & text that sat on green in light mode */
+  --forest:      #EDE5D4;   /* cream - headings & text that sat on green in light mode */
   --moss:        #7AAF8A;
   --sage:        #5A8A6A;
   --sage-pale:   #1A3526;   /* dark green for sage-pale usages */
   --amber:       #C9853A;
   --amber-warm:  #D4924A;
   --amber-pale:  #181E10;   /* very dark olive for amber-tinted sections */
-  --cream:       #1A3526;   /* main bg — dark forest green */
-  --parchment:   #21402F;   /* secondary sections — visibly lighter */
-  --bark:        #0F1F17;   /* darkest — footer, hero */
-  --text-dark:   #EDE5D4;   /* warm cream — primary text */
-  --text-mid:    #9AB5A0;   /* muted sage — lighter for readability */
+  --cream:       #1A3526;   /* main bg - dark forest green */
+  --parchment:   #21402F;   /* secondary sections - visibly lighter */
+  --bark:        #0F1F17;   /* darkest - footer, hero */
+  --text-dark:   #EDE5D4;   /* warm cream - primary text */
+  --text-mid:    #9AB5A0;   /* muted sage - lighter for readability */
   --text-light:  #5A7A68;
   --border:      #305040;   /* more visible borders */
   --border-sage: #2A4538;
-  --white:       #273F31;   /* card backgrounds — clearly lighter than cream */
+  --white:       #273F31;   /* card backgrounds - clearly lighter than cream */
   --shadow:      0 1px 3px rgba(0,0,0,0.5), 0 4px 14px rgba(0,0,0,0.5), 0 10px 28px rgba(0,0,0,0.4);
   --shadow-lg:   0 2px 6px rgba(0,0,0,0.6), 0 8px 24px rgba(0,0,0,0.7), 0 24px 56px rgba(0,0,0,0.6);
   --shadow-warm: 0 2px 8px rgba(201,133,58,0.15), 0 8px 28px rgba(201,133,58,0.18), 0 24px 52px rgba(201,133,58,0.10);
 }
 
-/* Amber as the interactive accent in dark mode — exclude .btn elements so social/nav buttons keep their own colours */
+/* Amber as the interactive accent in dark mode - exclude .btn elements so social/nav buttons keep their own colours */
 [data-theme="dark"] a:not(.btn) { color: var(--amber); }
 [data-theme="dark"] a:not(.btn):hover { color: var(--amber-warm); }
 
@@ -131,13 +131,13 @@
 /* Session banner h2 is explicitly coloured var(--cream) in booking.css */
 [data-theme="dark"] .session-length-banner h2 { color: var(--text-dark); }
 
-/* Hero logo disc — keep it cream so logo renders cleanly on dark hero */
+/* Hero logo disc - keep it cream so logo renders cleanly on dark hero */
 [data-theme="dark"] .hero-badge-disc {
   background: #EDE5D4;
   box-shadow: 0 0 0 10px rgba(237,229,212,0.08), 0 0 0 20px rgba(237,229,212,0.04), 0 16px 48px rgba(0,0,0,0.5);
 }
 
-/* Header logo — subtle warm backing to hide any white fringe pixels */
+/* Header logo - subtle warm backing to hide any white fringe pixels */
 [data-theme="dark"] .site-logo { background: none; padding: 0; margin: 0; }
 /* The logo has white edges and a light centre, so in dark mode it sits on a cream disc (like the footer and hero) */
 [data-theme="dark"] .site-logo img {
@@ -932,7 +932,7 @@ section { padding: var(--section-gap) 0; }
   overflow: visible;
 }
 
-/* JS handles transform — CSS only adds cursor and overflow */
+/* JS handles transform - CSS only adds cursor and overflow */
 /* Subtle arrow hint on hover */
 .clickable-card:hover h3::after,
 .clickable-card:hover .callout-big::after {
@@ -1331,7 +1331,7 @@ button:focus-visible {
 }
 /* ── HIGH CONTRAST (generated) END ── */
 
-/* ── Opening date bar + badges (added Nov 2026) — blue from the logo lettering ── */
+/* ── Opening date bar + badges (added Nov 2026) - blue from the logo lettering ── */
 .opening-bar {
   background: #3474AC;
   color: #FFFFFF;

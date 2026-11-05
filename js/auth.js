@@ -12,10 +12,10 @@ var db = (window.supabase && typeof SUPABASE_URL !== 'undefined')
   ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
   : null;
 
-if (!db) console.error('Supabase not loaded — check your internet connection.');
+if (!db) console.error('Supabase not loaded - check your internet connection.');
 
 async function signIn(email, password) {
-  if (!db) return { error: { message: 'Connection error — please refresh and try again.' } };
+  if (!db) return { error: { message: 'Connection error. Please refresh and try again.' } };
   return db.auth.signInWithPassword({ email: email, password: password });
 }
 
@@ -24,7 +24,7 @@ async function signOut() {
 }
 
 async function resetPassword(email, redirectTo) {
-  if (!db) return { error: { message: 'Connection error — please refresh and try again.' } };
+  if (!db) return { error: { message: 'Connection error. Please refresh and try again.' } };
   return db.auth.resetPasswordForEmail(email, { redirectTo: redirectTo });
 }
 

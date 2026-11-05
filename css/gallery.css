@@ -1,5 +1,5 @@
 /* =============================================
-   GALLERY PAGE — Countryside Editorial
+   GALLERY PAGE - Countryside Editorial
    ============================================= */
 
 /* ── Lightbox ────────────────────────────────── */
@@ -310,7 +310,7 @@
 
 .insta-placeholder:hover { border-color: var(--amber); }
 
-/* ── Social section (shared — also used on home) */
+/* ── Social section (shared - also used on home) */
 .social-section {
   background: var(--forest);
   text-align: center;

@@ -42,7 +42,7 @@
       const rotX   = -dy * TILT;  // tilt up when cursor is top
       const rotY   =  dx * TILT;  // tilt right when cursor is right
 
-      // Layered shadow — shifts direction with tilt, depth increases with movement
+      // Layered shadow - shifts direction with tilt, depth increases with movement
       const dist  = Math.sqrt(dx * dx + dy * dy); // 0–1.41
       const sx    = -dx * 18;
       const sy    = -dy * 18;
@@ -77,7 +77,7 @@
   // Apply to all clickable cards
   function applyAll() {
     document.querySelectorAll('.clickable-card').forEach(card => {
-      // Skip list items (who-list) — tilt doesn't suit horizontal items
+      // Skip list items (who-list) - tilt doesn't suit horizontal items
       if (card.tagName === 'LI') return;
       // Ensure position:relative for shine overlay
       const pos = getComputedStyle(card).position;

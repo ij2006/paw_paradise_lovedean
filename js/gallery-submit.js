@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────
-//  Gallery page — visitor photos.
+//  Gallery page - visitor photos.
 //  • Shows approved visitor photos under the main gallery.
 //  • Lets anyone send up to 3 photos. Each one is shrunk in the
 //    browser first (about 300 KB, location data removed), then

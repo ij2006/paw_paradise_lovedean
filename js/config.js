@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────
-//  Paw Paradise Lovedean — Supabase Config
+//  Paw Paradise Lovedean - Supabase Config
 //
 //  Setup steps:
 //  1. Go to https://supabase.com and create a free account

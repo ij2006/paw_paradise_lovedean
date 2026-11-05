@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────
-//  Admin page — family sign-in, suggestions and gallery photos.
+//  Admin page - family sign-in, suggestions and gallery photos.
 //  Not linked from the site. Only accounts with
 //  profiles.is_admin = true get past the sign-in.
 // ─────────────────────────────────────────────
@@ -27,7 +27,7 @@
 
   // ── Who is signed in? ───────────────────────
   async function route() {
-    if (!db) { show('admin-signin'); msg('ad-signin-msg', 'Cannot reach the database — check your internet connection and refresh.', 'error'); return; }
+    if (!db) { show('admin-signin'); msg('ad-signin-msg', 'Cannot reach the database. Check your internet connection and refresh.', 'error'); return; }
     if (recovering) { show('admin-newpass'); return; }
 
     var user = await getUser();
