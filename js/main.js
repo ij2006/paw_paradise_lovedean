@@ -8,6 +8,8 @@ if (toggle && nav) {
   toggle.addEventListener('click', () => {
     const open = nav.classList.toggle('open');
     toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    // Keep the whole menu reachable on short phone screens: it scrolls inside itself
+    if (open) nav.style.maxHeight = Math.max(200, window.innerHeight - nav.getBoundingClientRect().top) + 'px';
   });
 
   // Close on link click
