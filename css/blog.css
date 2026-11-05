@@ -164,7 +164,7 @@
 
 .blog-post-title {
   font-family: var(--font-heading);
-  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-size: clamp(1.4rem, calc(3vw * var(--fs-scale, 1)), 2rem);
   font-weight: 600;
   color: var(--forest);
   line-height: 1.2;

@@ -232,7 +232,7 @@ a.cm-value:hover {
 .cs-block p { color: var(--text-mid); margin: 0 auto; max-width: 480px; }
 .cs-place { font-weight: 500; color: var(--text-dark) !important; margin-bottom: 10px !important; }
 .contact-email {
-  display: inline-block; font-size: clamp(1.25rem, 3.2vw, 1.7rem); font-weight: 600;
+  display: inline-block; font-size: clamp(1.25rem, calc(3.2vw * var(--fs-scale, 1)), 1.7rem); font-weight: 600;
   color: var(--forest); overflow-wrap: anywhere; margin-bottom: 12px;
   text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 5px;
 }
