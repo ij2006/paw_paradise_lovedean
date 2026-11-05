@@ -11,7 +11,7 @@
   <link rel="manifest" href="../site.webmanifest" />
   <meta name="theme-color" content="#1C3D28" />
   <link rel="stylesheet" href="../css/style.css?v=22" />
-  <link rel="stylesheet" href="../css/reviews.css?v=11" />
+  <link rel="stylesheet" href="../css/reviews.css?v=12" />
 <script>(function(){var t=localStorage.getItem('pp-theme')||'light';document.documentElement.setAttribute('data-theme',t);})();</script>
 </head>
 <body>
@@ -55,118 +55,31 @@
       <div class="container">
         <span class="section-label">What our visitors say</span>
         <h1>Reviews</h1>
-        <p>Real experiences from real dog owners. Read what our visitors have to say — and share your own.</p>
+        <p>Read what visitors say about Paw Paradise Lovedean, or leave a review of your own, on Google and Facebook.</p>
       </div>
     </section>
 
     <!-- STAR SUMMARY -->
-    <section class="reviews-summary-section" style="display:none">
+    <section class="rv-links-section">
       <div class="container">
-        <div class="reviews-summary">
-          <div class="rs-score">
-            <span class="rs-number">5.0</span>
-            <div class="rs-stars">★★★★★</div>
-            <span class="rs-count">Based on customer reviews</span>
+        <div class="rv-links">
+          <div class="rv-link-card">
+            <h2>Google</h2>
+            <p>Read our Google reviews, or leave one after your visit. It only takes a minute and really helps a small business.</p>
+            <div class="rv-link-btns">
+              <a class="btn btn-primary" id="rv-google-read" href="https://www.google.com/maps/search/?api=1&amp;query=Paw%20Paradise%20Lovedean" target="_blank" rel="noopener">Read Google reviews</a>
+              <a class="btn btn-outline" id="rv-google-write" href="https://www.google.com/maps/search/?api=1&amp;query=Paw%20Paradise%20Lovedean" target="_blank" rel="noopener">Leave a Google review</a>
+            </div>
           </div>
-          <div class="rs-bars">
-            <div class="rs-bar-row">
-              <span>5</span>
-              <div class="rs-bar"><div class="rs-bar-fill" style="width:100%"></div></div>
-            </div>
-            <div class="rs-bar-row">
-              <span>4–4½</span>
-              <div class="rs-bar"><div class="rs-bar-fill" style="width:0%"></div></div>
-            </div>
-            <div class="rs-bar-row">
-              <span>3–3½</span>
-              <div class="rs-bar"><div class="rs-bar-fill" style="width:0%"></div></div>
-            </div>
-            <div class="rs-bar-row">
-              <span>2–2½</span>
-              <div class="rs-bar"><div class="rs-bar-fill" style="width:0%"></div></div>
-            </div>
-            <div class="rs-bar-row">
-              <span>½–1½</span>
-              <div class="rs-bar"><div class="rs-bar-fill" style="width:0%"></div></div>
+          <div class="rv-link-card">
+            <h2>Facebook</h2>
+            <p>See recommendations from our Facebook community, or recommend us yourself from the Reviews tab on our page.</p>
+            <div class="rv-link-btns">
+              <a class="btn btn-primary" id="rv-facebook" href="https://www.facebook.com/share/1MEqcxMWLj/" target="_blank" rel="noopener">Read Facebook reviews</a>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- REVIEWS GRID -->
-    <section class="reviews-section">
-      <div class="container">
-        <div class="reviews-grid" id="reviews-grid">
-        </div>
-      </div>
-    </section>
-
-    <!-- SUBMIT A REVIEW -->
-    <section class="submit-review-section">
-      <div class="container">
-        <div class="submit-review-inner">
-
-          <div class="sr-intro">
-            <span class="section-label">Share your experience</span>
-            <h2>Leave a review</h2>
-            <p>Been to Paw Paradise Lovedean? We'd love to hear what you and your dog thought. Your review helps other dog owners decide if it's right for them.</p>
-            <p>All reviews are read by us before being published — we don't edit what you write, but we may decline anything offensive or irrelevant.</p>
-            <p>No account needed, and we don't ask for your email.</p>
-          </div>
-
-          <div class="review-form" id="review-form">
-
-            <div class="form-row-2">
-              <div class="form-group">
-                <label for="rv-name">Your name</label>
-                <input type="text" id="rv-name" maxlength="40" autocomplete="name" />
-                <label class="rv-anon">
-                  <input type="checkbox" id="rv-anon" />
-                  <span>Post anonymously</span>
-                </label>
-              </div>
-              <div class="form-group">
-                <label for="rv-dog">Your dog's name <span class="optional">(optional)</span></label>
-                <input type="text" id="rv-dog" maxlength="60" />
-              </div>
-            </div>
-
-            <fieldset class="form-group star-fieldset">
-              <legend>Star rating</legend>
-              <div class="star-rating star-rating--half">
-                <input type="radio" name="rating" id="star5" value="5" /><label for="star5" class="half r" title="5 stars"><span class="sr-only">5 stars</span><span class="glyph" aria-hidden="true">★</span></label>
-                <input type="radio" name="rating" id="star4_5" value="4.5" /><label for="star4_5" class="half l" title="4.5 stars"><span class="sr-only">4.5 stars</span><span class="glyph" aria-hidden="true">★</span></label>
-                <input type="radio" name="rating" id="star4" value="4" /><label for="star4" class="half r" title="4 stars"><span class="sr-only">4 stars</span><span class="glyph" aria-hidden="true">★</span></label>
-                <input type="radio" name="rating" id="star3_5" value="3.5" /><label for="star3_5" class="half l" title="3.5 stars"><span class="sr-only">3.5 stars</span><span class="glyph" aria-hidden="true">★</span></label>
-                <input type="radio" name="rating" id="star3" value="3" /><label for="star3" class="half r" title="3 stars"><span class="sr-only">3 stars</span><span class="glyph" aria-hidden="true">★</span></label>
-                <input type="radio" name="rating" id="star2_5" value="2.5" /><label for="star2_5" class="half l" title="2.5 stars"><span class="sr-only">2.5 stars</span><span class="glyph" aria-hidden="true">★</span></label>
-                <input type="radio" name="rating" id="star2" value="2" /><label for="star2" class="half r" title="2 stars"><span class="sr-only">2 stars</span><span class="glyph" aria-hidden="true">★</span></label>
-                <input type="radio" name="rating" id="star1_5" value="1.5" /><label for="star1_5" class="half l" title="1.5 stars"><span class="sr-only">1.5 stars</span><span class="glyph" aria-hidden="true">★</span></label>
-                <input type="radio" name="rating" id="star1" value="1" /><label for="star1" class="half r" title="1 star"><span class="sr-only">1 star</span><span class="glyph" aria-hidden="true">★</span></label>
-                <input type="radio" name="rating" id="star0_5" value="0.5" /><label for="star0_5" class="half l" title="0.5 stars"><span class="sr-only">0.5 stars</span><span class="glyph" aria-hidden="true">★</span></label>
-              </div>
-              <p class="star-help" id="star-help">Tap the left or right side of a star for half stars.</p>
-            </fieldset>
-
-            <div class="form-group">
-              <label for="rv-review">Your review</label>
-              <textarea id="rv-review" rows="5" maxlength="1500" placeholder="Tell us about your visit — what did you and your dog love about it?"></textarea>
-            </div>
-
-            <!-- Spam trap: hidden from people, bots fill it in -->
-            <div class="hp-field" aria-hidden="true">
-              <label for="rv-website">Leave this empty</label>
-              <input type="text" id="rv-website" tabindex="-1" autocomplete="off" />
-            </div>
-
-            <p class="rv-notice"><a href="privacy.html">Privacy Policy</a></p>
-
-            <button type="button" class="btn btn-primary btn-full" id="rv-submit">Submit review</button>
-            <p class="review-submit-msg" id="review-msg" role="status" hidden></p>
-          </div>
-
-        </div>
+        <p class="rv-links-note">Reviews open on Google and Facebook in a new tab, so you always see them in full, exactly as visitors wrote them.</p>
       </div>
     </section>
 
@@ -202,8 +115,7 @@
   <script src="../js/config.js"></script>
   <script src="../js/auth.js?v=5"></script>
   <script src="../js/main.js?v=3"></script>
-  <script src="../js/reviews.js?v=8"></script>
-  <script src="../js/privacy-modal.js?v=11"></script>
+  <script src="../js/privacy-modal.js?v=12"></script>
   <script src="../js/card-effects.js"></script>
   <button class="back-to-top" id="back-to-top" aria-label="Back to top">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>

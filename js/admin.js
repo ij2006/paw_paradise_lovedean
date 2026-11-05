@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────
-//  Admin page — family sign-in, approve reviews.
+//  Admin page — family sign-in, suggestions and gallery photos.
 //  Not linked from the site. Only accounts with
 //  profiles.is_admin = true get past the sign-in.
 // ─────────────────────────────────────────────
@@ -38,7 +38,6 @@
 
     $('ad-name').textContent = admin.name;
     show('admin-dash');
-    loadReviews();
     loadSuggestions();
     loadPhotos();
   }
@@ -90,39 +89,6 @@
   $('ad-signout-btn2').addEventListener('click', doSignOut);
 
   // ── Reviews ─────────────────────────────────
-  function reviewRow(r, live) {
-    var actions = live
-      ? '<button type="button" class="btn btn-outline btn-sm" data-act="hide" data-id="' + r.id + '">Hide</button>' +
-        '<button type="button" class="admin-danger" data-act="delete" data-id="' + r.id + '">Delete</button>'
-      : '<button type="button" class="btn btn-primary btn-sm" data-act="approve" data-id="' + r.id + '">Approve</button>' +
-        '<button type="button" class="admin-danger" data-act="delete" data-id="' + r.id + '">Decline</button>';
-    return '<div class="admin-review" id="rev-' + r.id + '">' +
-      '<div class="admin-review-head">' +
-        '<strong>' + esc(r.name) + '</strong>' + (r.dog ? ' <span class="admin-dim">with ' + esc(r.dog) + '</span>' : '') +
-        '<span class="admin-stars" role="img" aria-label="' + Number(r.rating) + ' out of 5 stars"><span class="stars-bg" aria-hidden="true">★★★★★</span><span class="stars-fg" aria-hidden="true" style="width:' + (Number(r.rating) / 5 * 100) + '%">★★★★★</span></span> <span class="admin-dim">' + Number(r.rating) + '/5</span>' +
-        '<span class="admin-dim admin-date">' + fmtDate(r.created_at) + '</span>' +
-      '</div>' +
-      '<p class="admin-review-text">' + esc(r.review_text) + '</p>' +
-      '<div class="admin-review-actions">' + actions + '</div>' +
-    '</div>';
-  }
-
-  async function loadReviews() {
-    $('ad-pending').innerHTML = '<p class="admin-dim">Loading…</p>';
-    $('ad-live').innerHTML = '';
-    var res = await db.from('reviews').select('id, name, dog, rating, review_text, approved, created_at').order('created_at', { ascending: false });
-    if (res.error) {
-      $('ad-pending').innerHTML = '<p class="admin-msg admin-msg--error">Could not load reviews: ' + esc(res.error.message) + '. Has the database update (database/setup-all.sql) been run?</p>';
-      return;
-    }
-    var pending = res.data.filter(function (r) { return !r.approved; });
-    var live    = res.data.filter(function (r) { return r.approved; });
-    $('ad-pending-count').textContent = pending.length ? '(' + pending.length + ')' : '';
-    $('ad-live-count').textContent = live.length ? '(' + live.length + ')' : '';
-    $('ad-pending').innerHTML = pending.length ? pending.map(function (r) { return reviewRow(r, false); }).join('') : '<p class="admin-dim">Nothing waiting. All caught up.</p>';
-    $('ad-live').innerHTML = live.length ? live.map(function (r) { return reviewRow(r, true); }).join('') : '<p class="admin-dim">No published reviews yet.</p>';
-  }
-
   // ── Suggestions ─────────────────────────────
   var CATS = { facilities: 'Field & facilities', booking: 'Booking & sessions', website: 'Website', dogs: 'Dogs & welfare', other: 'Other' };
 
@@ -227,15 +193,6 @@
       loadSuggestions();
       return;
     }
-    if (act === 'delete' && !window.confirm('Delete this review for good?')) return;
-
-    b.disabled = true;
-    var q = db.from('reviews');
-    var res = act === 'approve' ? await q.update({ approved: true }).eq('id', id)
-            : act === 'hide'    ? await q.update({ approved: false }).eq('id', id)
-            :                     await q.delete().eq('id', id);
-    if (res.error) { b.disabled = false; alert('That did not work: ' + res.error.message); return; }
-    loadReviews();
   });
 
   if (db) {
