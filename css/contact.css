@@ -262,3 +262,5 @@ a.emergency-number:hover { text-decoration: underline; }
 [data-theme="dark"][data-contrast="on"] .emergency-strip p { color: #fff !important; }
 [data-theme="dark"][data-contrast="on"] .emergency-tag { background: #FF8A80 !important; color: #000 !important; }
 [data-theme="dark"][data-contrast="on"] a.emergency-number { color: #FF8A80 !important; }
+
+.contact-simple .social-follow-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 16px; }
