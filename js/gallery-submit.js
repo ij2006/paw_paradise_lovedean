@@ -82,34 +82,56 @@
     m.hidden = false;
   }
 
-  function updatePreview() {
-    var input = $('gs-files');
+  // Photos picked so far. Choosing again ADDS to the list (phones often
+  // let you pick only one at a time), up to MAX_FILES.
+  var chosen = [];
+
+  function renderPreview() {
     var box = $('gs-preview');
     box.innerHTML = '';
-    var files = Array.prototype.slice.call(input.files || []);
-    if (files.length > MAX_FILES) {
-      showMsg('Please choose up to ' + MAX_FILES + ' photos at a time.', 'error');
-      input.value = '';
-      return;
-    }
-    $('gs-msg').hidden = true;
-    files.forEach(function (f) {
-      if (!/^image\//.test(f.type) && !/\.(jpe?g|png|heic|heif|webp)$/i.test(f.name)) return;
-      var url = URL.createObjectURL(f);
+    chosen.forEach(function (f, i) {
+      var wrap = document.createElement('div');
+      wrap.className = 'gs-thumb';
       var img = document.createElement('img');
-      img.src = url; img.alt = ''; img.onload = function () { URL.revokeObjectURL(url); };
-      img.onerror = function () { img.remove(); };
-      box.appendChild(img);
+      var url = URL.createObjectURL(f);
+      img.src = url; img.alt = '';
+      img.onload = function () { URL.revokeObjectURL(url); };
+      img.onerror = function () { img.replaceWith(Object.assign(document.createElement('span'), { className: 'gs-thumb-name', textContent: f.name })); };
+      var rm = document.createElement('button');
+      rm.type = 'button';
+      rm.className = 'gs-remove';
+      rm.setAttribute('aria-label', 'Remove photo ' + (i + 1));
+      rm.textContent = '×';
+      rm.addEventListener('click', function () { chosen.splice(i, 1); renderPreview(); });
+      wrap.appendChild(img); wrap.appendChild(rm);
+      box.appendChild(wrap);
     });
+    var label = $('gs-count');
+    if (label) label.textContent = chosen.length ? chosen.length + ' of ' + MAX_FILES + ' chosen' + (chosen.length < MAX_FILES ? '. Tap again to add more.' : '.') : '';
+  }
+
+  function addFiles() {
+    var input = $('gs-files');
+    var picked = Array.prototype.slice.call(input.files || []);
+    input.value = '';   // so the same photo can be picked again after removing it
+    $('gs-msg').hidden = true;
+    var room = MAX_FILES - chosen.length;
+    if (picked.length > room) {
+      if (room <= 0) showMsg('You\'ve already chosen ' + MAX_FILES + ' photos, the most you can send at once. Remove one to add another.', 'error');
+      else showMsg('You can send up to ' + MAX_FILES + ' photos at a time, so only ' + room + ' more ' + (room === 1 ? 'was' : 'were') + ' added.', 'error');
+      picked = picked.slice(0, Math.max(room, 0));
+    }
+    chosen = chosen.concat(picked);
+    renderPreview();
   }
 
   function initForm() {
     var btn = $('gs-submit');
     if (!btn) return;
-    $('gs-files').addEventListener('change', updatePreview);
+    $('gs-files').addEventListener('change', addFiles);
 
     btn.addEventListener('click', async function () {
-      var files = Array.prototype.slice.call($('gs-files').files || []);
+      var files = chosen.slice();
       var name = $('gs-name').value.trim().slice(0, 40);
       var dog  = $('gs-dog').value.trim().slice(0, 60);
       var consent = $('gs-consent').checked;
@@ -141,9 +163,10 @@
 
       if (sent && !failed && !unreadable) {
         showMsg('Thank you! We\'ll take a look and add your ' + (sent === 1 ? 'photo' : 'photos') + ' to the gallery soon.', 'success');
-        ['gs-name', 'gs-dog', 'gs-files'].forEach(function (id) { $(id).value = ''; });
+        ['gs-name', 'gs-dog'].forEach(function (id) { $(id).value = ''; });
         $('gs-consent').checked = false;
-        $('gs-preview').innerHTML = '';
+        chosen = [];
+        renderPreview();
       } else if (sent) {
         showMsg(sent + ' sent, but ' + (failed + unreadable) + ' didn\'t go through. ' + (unreadable ? 'Try a JPEG or PNG photo, or ' : 'Please try again, or ') + 'email it to us.', 'error');
       } else if (unreadable && !failed) {
