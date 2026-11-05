@@ -1,9 +1,13 @@
 // Gallery lightbox — images and videos
 (function () {
-  const items = [...document.querySelectorAll('.gallery-item')].filter(
-    item => item.querySelector('img') || item.querySelector('video')
-  );
-  if (!items.length) return;
+  let items = [];
+  function collect() {
+    items = [...document.querySelectorAll('.gallery-item')].filter(
+      item => item.querySelector('img') || item.querySelector('video')
+    );
+  }
+  collect();
+  if (!document.querySelector('.gallery-grid, .visitor-grid')) return;
 
   let current = 0;
 
@@ -98,17 +102,25 @@
     }, 150);
   }
 
-  // Make each photo/video tile usable with the keyboard and screen readers
-  items.forEach((item, i) => {
-    const img = item.querySelector('img');
-    item.setAttribute('tabindex', '0');
-    item.setAttribute('role', 'button');
-    item.setAttribute('aria-label', (isVideo(item) ? 'Play video: ' : 'View photo: ') + ((img && img.alt) || 'gallery item'));
-    item.addEventListener('click', () => open(i));
-    item.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(i); }
+  // Make each photo/video tile usable with the keyboard and screen readers.
+  // Called again by gallery-submit.js once visitor photos have loaded.
+  function setup() {
+    collect();
+    items.forEach((item) => {
+      if (item.dataset.lb) return;
+      item.dataset.lb = '1';
+      const img = item.querySelector('img');
+      item.setAttribute('tabindex', '0');
+      item.setAttribute('role', 'button');
+      item.setAttribute('aria-label', (isVideo(item) ? 'Play video: ' : 'View photo: ') + ((img && img.alt) || 'gallery item'));
+      item.addEventListener('click', () => open(items.indexOf(item)));
+      item.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(items.indexOf(item)); }
+      });
     });
-  });
+  }
+  setup();
+  window.ppLightboxRefresh = setup;
 
   overlay.querySelector('.lb-close').addEventListener('click', close);
   overlay.querySelector('.lb-prev').addEventListener('click', (e) => { e.stopPropagation(); go(-1); });

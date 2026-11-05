@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32.png" />
   <link rel="apple-touch-icon" href="../images/apple-touch-icon.png" />
   <link rel="stylesheet" href="../css/style.css?v=20" />
-  <link rel="stylesheet" href="../css/gallery.css?v=9" />
+  <link rel="stylesheet" href="../css/gallery.css?v=11" />
 <script>(function(){var t=localStorage.getItem('pp-theme')||'light';document.documentElement.setAttribute('data-theme',t);})();</script>
 </head>
 <body>
@@ -150,13 +150,55 @@
       </div>
     </section>
 
+    <!-- VISITOR PHOTOS (approved submissions, filled in by gallery-submit.js) -->
+    <section class="visitor-section" id="visitor-photos" hidden>
+      <div class="container">
+        <span class="section-label">From our visitors</span>
+        <h2>Your photos</h2>
+        <div class="visitor-grid" id="visitor-grid"></div>
+      </div>
+    </section>
+
     <!-- PHOTO SUBMISSION -->
-    <section class="submit-section submit-section--simple">
+    <section class="submit-section submit-section--simple" id="share-photos">
       <div class="container submit-simple-inner">
         <span class="section-label">Share your visit</span>
         <h2>Got a great photo?</h2>
-        <p>Email your photos to us and — with your permission — we may add them to the gallery.</p>
-        <a href="mailto:pawparadiselovedean@gmail.com?subject=Gallery%20photo%20submission" class="btn btn-primary">Email us your photo</a>
+        <p>Send us up to 3 photos from your visit. We check every photo before it goes on the website.</p>
+
+        <div class="gs-form">
+          <div class="gs-field">
+            <label for="gs-files">Your photos (up to 3)</label>
+            <input type="file" id="gs-files" accept="image/*" multiple />
+            <div class="gs-preview" id="gs-preview" aria-hidden="true"></div>
+          </div>
+          <div class="gs-row">
+            <div class="gs-field">
+              <label for="gs-name">Your name <span class="gs-opt">(optional)</span></label>
+              <input type="text" id="gs-name" maxlength="40" autocomplete="given-name" />
+            </div>
+            <div class="gs-field">
+              <label for="gs-dog">Dog's name <span class="gs-opt">(optional)</span></label>
+              <input type="text" id="gs-dog" maxlength="60" />
+            </div>
+          </div>
+          <p class="gs-hint">If you add names, they show under your photo.</p>
+
+          <!-- Spam trap: hidden from people, bots fill it in -->
+          <div class="hp-field" aria-hidden="true">
+            <label for="gs-website">Leave this empty</label>
+            <input type="text" id="gs-website" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <label class="gs-consent" for="gs-consent">
+            <input type="checkbox" id="gs-consent" />
+            <span>These are my photos and I'm happy for Paw Paradise to show them on the website and social media. Anyone else in them is happy for them to be shared.</span>
+          </label>
+          <p class="gs-hint"><a href="privacy.html">Privacy Policy</a></p>
+
+          <button type="button" class="btn btn-primary btn-full" id="gs-submit">Send photos</button>
+          <p class="gs-msg" id="gs-msg" role="status" hidden></p>
+        </div>
       </div>
     </section>
 
@@ -207,8 +249,9 @@
   <script src="../js/config.js"></script>
   <script src="../js/auth.js?v=5"></script>
   <script src="../js/main.js?v=3"></script>
-  <script src="../js/lightbox.js?v=3"></script>
-  <script src="../js/privacy-modal.js?v=10"></script>
+  <script src="../js/lightbox.js?v=4"></script>
+  <script src="../js/gallery-submit.js?v=1"></script>
+  <script src="../js/privacy-modal.js?v=11"></script>
   <script src="../js/card-effects.js"></script>
   <button class="back-to-top" id="back-to-top" aria-label="Back to top">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>

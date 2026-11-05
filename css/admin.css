@@ -85,3 +85,13 @@
 .admin-stars { position: relative; display: inline-block; line-height: 1; letter-spacing: 2px; white-space: nowrap; }
 .admin-stars .stars-bg { color: var(--border); }
 .admin-stars .stars-fg { position: absolute; left: 0; top: 0; overflow: hidden; color: var(--amber-warm); }
+
+/* Gallery photo submissions */
+.admin-photos { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; }
+.admin-photos > p { grid-column: 1 / -1; }
+.admin-photo { border: 1px solid var(--border); border-radius: var(--radius); padding: 10px; background: var(--off-white); }
+.admin-photo img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: calc(var(--radius) - 2px); display: block; }
+.admin-photo-missing { aspect-ratio: 1 / 1; display: flex; align-items: center; justify-content: center; background: var(--parchment); color: var(--text-mid); border-radius: calc(var(--radius) - 2px); font-size: 0.85rem; }
+.admin-photo-who { margin: 8px 0 2px; font-size: 0.9rem; }
+.admin-photo .admin-review-actions { margin-top: 8px; flex-wrap: wrap; gap: 8px; }
+[data-theme="dark"] .admin-photo { background: var(--white); }

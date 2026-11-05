@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32.png" />
   <link rel="apple-touch-icon" href="../images/apple-touch-icon.png" />
   <link rel="stylesheet" href="../css/style.css?v=20" />
-  <link rel="stylesheet" href="../css/admin.css?v=3" />
+  <link rel="stylesheet" href="../css/admin.css?v=4" />
 <script>(function(){var t=localStorage.getItem('pp-theme')||'light';document.documentElement.setAttribute('data-theme',t);})();</script>
 </head>
 <body>
@@ -110,6 +110,18 @@
           </div>
 
           <div class="admin-card">
+            <h2>Gallery photos waiting for approval <span class="admin-count" id="ad-photos-count"></span></h2>
+            <p class="admin-hint">Sent from the Gallery page. Only you can see these until you approve them. Please don't approve photos showing children's faces, car number plates or anything you're unsure about.</p>
+            <div id="ad-photos" class="admin-photos"></div>
+          </div>
+
+          <div class="admin-card">
+            <h2>Published visitor photos <span class="admin-count" id="ad-photos-live-count"></span></h2>
+            <p class="admin-hint">These show on the Gallery page under "From our visitors". Delete one if someone asks for it to be removed.</p>
+            <div id="ad-photos-live" class="admin-photos"></div>
+          </div>
+
+          <div class="admin-card">
             <h2>Published reviews <span class="admin-count" id="ad-live-count"></span></h2>
             <p class="admin-hint">Hide a review to take it off the website without deleting it.</p>
             <div id="ad-live" class="admin-list"></div>
@@ -157,9 +169,9 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="../js/config.js"></script>
   <script src="../js/auth.js?v=5"></script>
-  <script src="../js/admin.js?v=3"></script>
+  <script src="../js/admin.js?v=4"></script>
   <script src="../js/main.js?v=3"></script>
-  <script src="../js/privacy-modal.js?v=10"></script>
+  <script src="../js/privacy-modal.js?v=11"></script>
   <script src="../js/card-effects.js"></script>
   <button class="back-to-top" id="back-to-top" aria-label="Back to top">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>

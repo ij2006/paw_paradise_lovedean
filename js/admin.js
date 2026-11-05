@@ -40,6 +40,7 @@
     show('admin-dash');
     loadReviews();
     loadSuggestions();
+    loadPhotos();
   }
 
   // ── Sign in / out / password ────────────────
@@ -153,11 +154,71 @@
     }).join('');
   }
 
+
+  // ── Gallery photo submissions ───────────────
+  function photoCard(p, url, live) {
+    var who = [p.dog, p.name].filter(Boolean).map(esc).join(' with ') || '<span class="admin-dim">No names given</span>';
+    var actions = live
+      ? '<button type="button" class="admin-danger" data-act="delete-photo" data-id="' + p.id + '" data-path="' + esc(p.path) + '" data-live="1">Delete</button>'
+      : '<button type="button" class="btn btn-primary btn-sm" data-act="approve-photo" data-id="' + p.id + '" data-path="' + esc(p.path) + '">Approve</button>' +
+        '<button type="button" class="admin-danger" data-act="delete-photo" data-id="' + p.id + '" data-path="' + esc(p.path) + '">Delete</button>';
+    return '<div class="admin-photo">' +
+      (url ? '<a href="' + esc(url) + '" target="_blank" rel="noopener"><img src="' + esc(url) + '" alt="Submitted photo" loading="lazy" /></a>' : '<div class="admin-photo-missing">Photo missing</div>') +
+      '<p class="admin-photo-who">' + who + '</p>' +
+      '<p class="admin-dim admin-date">' + fmtDate(p.created_at) + '</p>' +
+      '<div class="admin-review-actions">' + actions + '</div>' +
+    '</div>';
+  }
+
+  async function loadPhotos() {
+    var box = $('ad-photos'), liveBox = $('ad-photos-live');
+    box.innerHTML = '<p class="admin-dim">Loading…</p>';
+    liveBox.innerHTML = '';
+    var res = await db.from('gallery_submissions').select('id, name, dog, path, approved, created_at').order('created_at', { ascending: false });
+    if (res.error) {
+      box.innerHTML = '<p class="admin-msg admin-msg--error">Could not load gallery photos: ' + esc(res.error.message) + '. Has database/gallery-submissions.sql been run in Supabase?</p>';
+      return;
+    }
+    var pending = res.data.filter(function (p) { return !p.approved; });
+    var live = res.data.filter(function (p) { return p.approved; });
+    $('ad-photos-count').textContent = pending.length ? '(' + pending.length + ')' : '';
+    $('ad-photos-live-count').textContent = live.length ? '(' + live.length + ')' : '';
+
+    var urls = {};
+    if (pending.length) {
+      var signed = await db.storage.from('gallery-pending').createSignedUrls(pending.map(function (p) { return p.path; }), 3600);
+      (signed.data || []).forEach(function (s) { if (s.signedUrl) urls[s.path] = s.signedUrl; });
+    }
+    box.innerHTML = pending.length ? pending.map(function (p) { return photoCard(p, urls[p.path], false); }).join('') : '<p class="admin-dim">Nothing waiting. All caught up.</p>';
+    liveBox.innerHTML = live.length ? live.map(function (p) {
+      return photoCard(p, db.storage.from('gallery-public').getPublicUrl(p.path).data.publicUrl, true);
+    }).join('') : '<p class="admin-dim">No visitor photos published yet.</p>';
+  }
+
   document.addEventListener('click', async function (e) {
     var b = e.target.closest('[data-act]');
     if (!b) return;
     var id = b.getAttribute('data-id');
     var act = b.getAttribute('data-act');
+    if (act === 'approve-photo' || act === 'delete-photo') {
+      var path = b.getAttribute('data-path');
+      if (act === 'delete-photo' && !window.confirm('Delete this photo for good?')) return;
+      b.disabled = true;
+      var err = null;
+      if (act === 'approve-photo') {
+        var mv = await db.storage.from('gallery-pending').move(path, path, { destinationBucket: 'gallery-public' });
+        if (mv.error) err = mv.error;
+        else { var up = await db.from('gallery_submissions').update({ approved: true }).eq('id', id); err = up.error; }
+      } else {
+        var bucket = b.getAttribute('data-live') ? 'gallery-public' : 'gallery-pending';
+        await db.storage.from(bucket).remove([path]);
+        var del = await db.from('gallery_submissions').delete().eq('id', id);
+        err = del.error;
+      }
+      if (err) { b.disabled = false; alert('That did not work: ' + err.message); return; }
+      loadPhotos();
+      return;
+    }
     if (act === 'delete-sugg') {
       if (!window.confirm('Delete this suggestion for good?')) return;
       b.disabled = true;
