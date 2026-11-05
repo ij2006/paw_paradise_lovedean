@@ -78,7 +78,7 @@
 .hero-btns .btn-primary {
   background: var(--amber);
   border-color: var(--amber);
-  color: var(--cream);
+  color: #111;
 }
 .hero-btns .btn-primary:hover {
   background: var(--amber-warm);
@@ -710,7 +710,7 @@
   flex-direction: column;
   align-items: center;
   gap: 6px;
-  color: rgba(245,233,216,0.55);
+  color: rgba(245,233,216,0.8);
   text-decoration: none;
   transition: color 0.2s, transform 0.2s;
   z-index: 10;

@@ -148,7 +148,7 @@
 }
 
 /* Hero primary button: white text on amber is unambiguous */
-[data-theme="dark"] .hero-btns .btn-primary { color: #fff !important; }
+[data-theme="dark"] .hero-btns .btn-primary { color: #111 !important; }
 
 /* Dark green section backgrounds → warm dark brown */
 [data-theme="dark"] .hero,
@@ -1509,3 +1509,16 @@ main li a:not(.btn),
   /* Leave room under the footer for the Accessibility and back-to-top buttons */
   .site-footer { padding-bottom: 120px; }
 }
+
+/* ── Contrast fixes (Nov 2026 audit) ── */
+/* "cream" becomes a dark colour in dark mode, so text that sits on the always-green social band needs a fixed light colour */
+[data-theme="dark"] .social-section h2 { color: #F5E9D8; }
+[data-theme="dark"] .social-section p  { color: rgba(245,233,216,0.82); }
+/* Hero "Book now": dark text on amber passes contrast in both modes */
+.hero-btns .btn-primary { color: #111; }
+/* Skip link readable in dark mode */
+[data-theme="dark"] .skip-link { background: #F5E9D8; color: #1C3D28 !important; }
+.scroll-hint-label { opacity: 1; }
+/* Accessibility button on hover/open: dark text on amber */
+.a11y-trigger:hover, .a11y-trigger[aria-expanded="true"] { color: #111; }
+.back-to-top:hover { color: #111; }
