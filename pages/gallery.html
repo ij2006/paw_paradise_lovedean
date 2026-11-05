@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32.png" />
   <link rel="apple-touch-icon" href="../images/apple-touch-icon.png" />
   <link rel="stylesheet" href="../css/style.css?v=21" />
-  <link rel="stylesheet" href="../css/gallery.css?v=14" />
+  <link rel="stylesheet" href="../css/gallery.css?v=17" />
 <script>(function(){var t=localStorage.getItem('pp-theme')||'light';document.documentElement.setAttribute('data-theme',t);})();</script>
 </head>
 <body>
@@ -61,10 +61,10 @@
     <section class="gallery-section">
       <div class="container">
 
-        <div class="gallery-grid">
-          <!-- Newest (Nov 2026): wide photo | video -->
-          <div class="gallery-item gallery-item--span2">
-            <img src="../images/gallery/photo-0267.jpg" alt="A ring of tree stumps for dogs to climb and explore" loading="lazy" />
+        <div class="gallery-grid gallery-grid--mosaic">
+          <!-- Mosaic: every tile is 1 column x 4 rows except gi-big (2 x 4). 2 big + 16 small = 4 full rows of 5. -->
+          <div class="gallery-item gi-big">
+            <img src="../images/gallery/ed5fb6c1-87e8-4675-82e1-11abb85b5fa6.jpg" alt="Aerial view of the whole dog field surrounded by woodland" loading="lazy" />
           </div>
           <div class="gallery-item gallery-item--video">
             <img src="../images/gallery/poster-6809.jpg" alt="Video: the weave poles in the field" loading="lazy" />
@@ -72,7 +72,6 @@
               <source src="../images/gallery/video-6809.mp4" type="video/mp4" />
             </video>
           </div>
-          <!-- Newest (Nov 2026): video | video | video -->
           <div class="gallery-item gallery-item--video">
             <img src="../images/gallery/poster-6810.jpg" alt="Video: the grassy mound" loading="lazy" />
             <video preload="none" muted playsinline>
@@ -85,15 +84,20 @@
               <source src="../images/gallery/video-6813.mp4" type="video/mp4" />
             </video>
           </div>
+          <div class="gallery-item">
+            <img src="../images/gallery/photo-0267.jpg" alt="A ring of tree stumps for dogs to climb and explore" loading="lazy" />
+          </div>
+          <div class="gallery-item">
+            <img src="../images/gallery/IMG_6154.JPG" alt="Golden retriever standing on the grassy mound above the dog tunnel" loading="lazy" />
+          </div>
           <div class="gallery-item gallery-item--video">
             <img src="../images/gallery/poster-6869.jpg" alt="Video: the ramp by the fence" loading="lazy" />
             <video preload="none" muted playsinline>
               <source src="../images/gallery/video-6869.mp4" type="video/mp4" />
             </video>
           </div>
-          <!-- Row A: wide aerial | video -->
-          <div class="gallery-item gallery-item--span2">
-            <img src="../images/gallery/ed5fb6c1-87e8-4675-82e1-11abb85b5fa6.jpg" alt="Aerial view of the whole dog field surrounded by woodland" loading="lazy" />
+          <div class="gallery-item">
+            <img src="../images/gallery/IMG_6139.JPG" alt="Golden retriever balancing on a fallen log in the field" loading="lazy" />
           </div>
           <div class="gallery-item gallery-item--video">
             <img src="../images/gallery/poster-bono-testing-equipment.jpg" alt="Video: Bono testing out the new log equipment" loading="lazy" />
@@ -101,19 +105,11 @@
               <source src="../images/gallery/bono-testing-equipment.mp4?v=2" type="video/mp4" />
             </video>
           </div>
-          <!-- Row B: video | wide photo -->
           <div class="gallery-item gallery-item--video">
             <img src="../images/gallery/poster-building-play-equipment.jpg" alt="Video: making progress on building the play equipment" loading="lazy" />
             <video preload="none">
               <source src="../images/gallery/building-play-equipment.mp4?v=2" type="video/mp4" />
             </video>
-          </div>
-          <div class="gallery-item gallery-item--span2">
-            <img src="../images/gallery/IMG_6139.JPG" alt="Golden retriever balancing on a fallen log in the field" loading="lazy" />
-          </div>
-          <!-- Row C: photo | video | video -->
-          <div class="gallery-item">
-            <img src="../images/gallery/IMG_6154.JPG" alt="Golden retriever standing on the grassy mound above the dog tunnel" loading="lazy" />
           </div>
           <div class="gallery-item gallery-item--video">
             <img src="../images/gallery/poster-car-park-update.jpg?v=2" alt="Video: the parking area taking shape" loading="lazy" />
@@ -127,9 +123,11 @@
               <source src="../images/gallery/and%20were%20off.mp4?v=2" type="video/mp4" />
             </video>
           </div>
-          <!-- Row D: wide photo | video -->
-          <div class="gallery-item gallery-item--span2">
+          <div class="gallery-item gi-big">
             <img src="../images/gallery/IMG_6566.JPG" alt="The wooden field shelter inside the fenced field" loading="lazy" />
+          </div>
+          <div class="gallery-item">
+            <img src="../images/gallery/IMG_6798.jpeg" alt="The secure double-gated entrance into the field" loading="lazy" />
           </div>
           <div class="gallery-item gallery-item--video">
             <img src="../images/gallery/poster-bono-tunnel.jpg" alt="Bono approves of the tunnel" />
@@ -137,18 +135,13 @@
               <source src="../images/gallery/bono%20approves%20of%20the%20tunnel.mp4?v=2" type="video/mp4" />
             </video>
           </div>
-          <!-- Row E: video | wide photo -->
           <div class="gallery-item gallery-item--video">
             <img src="../images/gallery/poster-new-video.jpg" alt="Paw Paradise FAQ video" />
             <video preload="none">
               <source src="../images/gallery/cbcce891935c4666a17c4978738ba2e0.mp4?v=2" type="video/mp4" />
             </video>
           </div>
-          <div class="gallery-item gallery-item--span2">
-            <img src="../images/gallery/IMG_6798.jpeg" alt="The secure double-gated entrance into the field" loading="lazy" />
-          </div>
-          <!-- Row F: wide photo | video -->
-          <div class="gallery-item gallery-item--span2">
+          <div class="gallery-item">
             <img src="../images/gallery/IMG_7438.JPG" alt="Paw Paradise Lovedean" />
           </div>
           <div class="gallery-item gallery-item--video">
