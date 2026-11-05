@@ -734,3 +734,6 @@
   50%       { transform: translateY(5px); }
 }
 @media (max-width: 600px) { .scroll-hint { display: none; } }
+
+/* Big numbers in the "Who it's for" callouts (the generic callout <p> rule was shrinking them) */
+.reactive-callout p.callout-big { font-size: 2.6rem; color: var(--amber-warm) !important; letter-spacing: 0; margin-bottom: 6px; }

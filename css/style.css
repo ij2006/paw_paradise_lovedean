@@ -138,11 +138,13 @@
 }
 
 /* Header logo — subtle warm backing to hide any white fringe pixels */
-[data-theme="dark"] .site-logo {
-  background: rgba(237,229,212,0.06);
-  border-radius: 10px;
-  padding: 2px 8px;
-  margin-left: -8px;
+[data-theme="dark"] .site-logo { background: none; padding: 0; margin: 0; }
+/* The logo has white edges and a light centre, so in dark mode it sits on a cream disc (like the footer and hero) */
+[data-theme="dark"] .site-logo img {
+  background: #EDE5D4;
+  border-radius: 50%;
+  padding: 2px;
+  box-shadow: 0 0 0 2px rgba(237,229,212,0.25);
 }
 
 /* Hero primary button: white text on amber is unambiguous */
