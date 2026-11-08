@@ -737,3 +737,12 @@
 
 /* Big numbers in the "Who it's for" callouts (the generic callout <p> rule was shrinking them) */
 .reactive-callout p.callout-big { font-size: 2.6rem; color: var(--amber-warm) !important; letter-spacing: 0; margin-bottom: 6px; }
+
+/* ── Get the app ───────────────────────── */
+.app-section { padding: 64px 0; text-align: center; }
+.app-inner { max-width: 640px; }
+.app-section h2 { margin-bottom: 10px; }
+.app-section .btn { margin: 18px 0 22px; }
+.app-steps { text-align: left; background: rgba(28,61,40,0.06); border-radius: 12px; padding: 16px 20px; font-size: 0.95rem; }
+.app-steps p { margin: 6px 0; }
+[data-theme="dark"] .app-steps { background: rgba(245,233,216,0.08); }
