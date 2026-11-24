@@ -76,9 +76,12 @@
 
   // Apply to all clickable cards
   function applyAll() {
+    return; // Tilt effect switched off site-wide: cards stay still but are still clickable
     document.querySelectorAll('.clickable-card').forEach(card => {
       // Skip list items (who-list) - tilt doesn't suit horizontal items
       if (card.tagName === 'LI') return;
+      // Skip the 'What to bring' cards - they stay still
+      if (card.classList.contains('bring-card')) return;
       // Ensure position:relative for shine overlay
       const pos = getComputedStyle(card).position;
       if (pos === 'static') card.style.position = 'relative';

@@ -176,7 +176,6 @@
 
 .why-card:hover {
   box-shadow: var(--shadow-lg);
-  transform: translateY(-4px);
   border-left-color: var(--amber);
 }
 .why-card:hover::after { opacity: 1; }
@@ -321,7 +320,6 @@
 }
 
 .humans-section .card:hover {
-  transform: translateY(-3px);
   box-shadow: var(--shadow-lg);
 }
 
@@ -491,7 +489,6 @@
 
 .step:hover {
   box-shadow: var(--shadow-lg);
-  transform: translateY(-4px);
 }
 
 .step-num {
